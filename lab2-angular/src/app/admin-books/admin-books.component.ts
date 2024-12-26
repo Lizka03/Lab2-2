@@ -99,8 +99,9 @@ export class AdminBooksComponent implements OnInit {
 
   // Фильтрация данных
   applyFilter(): void {
-    this.dataSource.filter = this.searchTerm.trim().toLowerCase();
+    this.updateDataSource();
   }
+  
   
 
   // Сортировка данных
@@ -129,13 +130,14 @@ export class AdminBooksComponent implements OnInit {
   updateDataSource(): void {
     const filteredBooks = this.searchTerm
       ? this.books.filter((book) =>
-          book.Title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          this.getAuthorNames(book.Authors).toLowerCase().includes(this.searchTerm.toLowerCase())
+          book.Title.toLowerCase().includes(this.searchTerm.toLowerCase()) // Только по названию
         )
       : this.books;
-
-    this.dataSource.data = filteredBooks; // Обновляем таблицу с учетом фильтрации
+  
+    this.dataSource.data = filteredBooks; // Обновляем данные таблицы
   }
+  
+  
 
   addBook(): void {
     if (!this.newBook.Title.trim()) {
