@@ -1,0 +1,18 @@
+<div class="overdue-books-container">
+    <h2>Просроченные книги по пользователям</h2>
+    <div class="user-cards">
+      <div class="user-card" *ngFor="let user of getUsersWithOverdueBooks()">
+        <h3>{{ user.name }}</h3>
+        <p *ngIf="user.books.length > 0">
+          <strong>Книги:</strong>
+        </p>
+        <ul>
+          <li *ngFor="let book of user.books">
+            {{ book.Title }} ({{ book.DueDate | date: 'dd.MM.yyyy' }})
+          </li>
+        </ul>
+        <p *ngIf="user.books.length === 0">Нет просроченных книг</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;
+  overflow: auto; /* Включение прокрутки */ }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.logo {
+    width: 20px; /* Уменьшите ширину */
+    height: auto; /* Высота автоматически подстроится */
+    vertical-align: middle; /* Выравнивание логотипа по тексту */
+    margin-right: 10px; /* Добавьте отступ справа от логотипа */
+    stroke: white;
+  }
+
+/* Логотип */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Шапка */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; /* Логотип слева, ссылки справа */
+  align-items: center;
+  padding: 0 16px;
+  background-color: #e91e63;
+  color: white;
+}
+
+/* Навигация */
+.nav-container {
+  display: flex;
+  gap: 16px; /* Расстояние между ссылками */
+  margin-left: auto; /* Перемещаем навигацию вправо */
+}
+
+.nav-container a, .nav-container button {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-container a:hover, .nav-container button:hover {
+  color: #f8bbd0; /* Цвет при наведении */
+}
+
+/* Дополнительные стили для адаптивности */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column; /* Вкладки переходят в столбец на маленьких экранах */
+    align-items: flex-end; /* Выравнивание вкладок */
+  }
+}

@@ -1,0 +1,40 @@
+.overdue-books-container {
+    margin: 20px;
+  }
+  
+  .overdue-books-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .user-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .user-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .user-card ul {
+    padding-left: 20px;
+    margin: 5px 0;
+  }
+  
+  .user-card li {
+    margin-bottom: 5px;
+  }
+  

@@ -1,0 +1,158 @@
+.books-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff; /* Белый фон для улучшения читаемости */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 12px;
+  }
+  
+  th {
+    background-color: #1976d2; /* Синий фон заголовков */
+    color: #ffffff; /* Белый текст заголовков */
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  td {
+    font-size: 14px;
+    color: #333; /* Тёмно-серый текст для удобного чтения */
+    background-color: #f9f9f9; /* Светлый фон для строк */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover td {
+    background-color: #e3f2fd; /* Светло-синий фон при наведении */
+  }
+  
+  .empty-message {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    margin: 20px 0;
+  }
+  
+  .mat-card {
+    box-shadow: none;
+    background-color: transparent;
+  }
+  
+  .mat-card-content {
+    padding: 0;
+  }
+  .filters {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .filters mat-form-field {
+    flex: 1;
+  }
+  .filter-input {
+    width: 300px;
+    padding: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .filter-input:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 2px 8px rgba(63, 81, 181, 0.2);
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  button.mat-raised-button {
+    font-size: 14px;
+    text-transform: none;
+    padding: 8px 16px;
+  }
+  /* Общая стилизация формы добавления */
+.add-book-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-book-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Стилизация строки ввода */
+  .add-book-container .form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Чтобы не было наложений на малых экранах */
+  }
+  
+  .add-book-container input[type="text"] {
+    padding: 5px 10px;
+    font-size: 1rem;
+    flex: 1; /* Занимает доступное пространство */
+    max-width: 300px; /* Ограничение по ширине */
+  }
+  
+  .add-book-container .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Стили для кнопки */
+  .add-book-container button {
+    padding: 5px 15px;
+    font-size: 1rem;
+    background-color: #d81b60; /* Цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-book-container button:hover {
+    background-color: #ad1457; /* Цвет при наведении */
+  }
+  
+  /* Разделение добавления книги и кнопок сортировки */
+  .controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Для корректного отображения на малых экранах */
+  }
+  
+  
+  

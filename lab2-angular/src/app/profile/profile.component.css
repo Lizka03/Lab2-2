@@ -1,0 +1,53 @@
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  mat-card {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+  
+  mat-card-header {
+    background-color: #e91e63; /* Цвет Material Design */
+    color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+  }
+  
+  mat-card-subtitle {
+    font-size: 14px;
+    color: #fce4ec;
+  }
+  
+  mat-list-item {
+    margin: 8px 0;
+  }
+  
+  mat-icon {
+    color: #e91e63;
+    margin-right: 8px;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #e91e63; /* Основной цвет сайта */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c2185b; /* Темный оттенок основного цвета */
+  }
+  

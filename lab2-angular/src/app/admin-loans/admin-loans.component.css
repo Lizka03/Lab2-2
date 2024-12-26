@@ -1,0 +1,27 @@
+.form-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  /* Изменение цвета фона для формы */
+.mat-card {
+    background-color: #3a3a3a; /* Новый цвет фона (тёмно-серый) */
+    color: #fff; /* Цвет текста */
+    border-radius: 8px; /* Радиус скругления */
+    padding: 20px; /* Отступы внутри карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для карточки */
+  }
+  

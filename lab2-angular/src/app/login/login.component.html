@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Вход</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Поле ввода логина -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Логин</mat-label>
+      <input matInput formControlName="login" placeholder="Введите логин">
+      <mat-error *ngIf="loginForm.get('login')?.hasError('required')">
+        Логин обязателен
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('login')?.hasError('minlength')">
+        Минимальная длина логина - 3 символа
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Поле ввода пароля -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" formControlName="password" placeholder="Введите пароль">
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Пароль обязателен
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        Минимальная длина пароля - 6 символов
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Кнопка отправки -->
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
+      Войти
+    </button>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <div class="toolbar-container">
+    <!-- Логотип -->
+    <span class="logo-container">
+      <img src="book.svg" alt="Библиотека" class="logo">
+      <span class="logo-text">Библиотека</span>
+    </span>
+
+    <!-- Навигация -->
+    <nav class="nav-container">
+      <a mat-button routerLink="/home" routerLinkActive="active-link">Главная</a>
+      <a mat-button routerLink="/admin-books" routerLinkActive="active-link" *ngIf="isAdmin">Книги</a>
+      <a mat-button routerLink="/admin-users" routerLinkActive="active-link" *ngIf="isAdmin">Просроченные книги</a>
+      <a mat-button routerLink="/admin-loans" routerLinkActive="active-link" *ngIf="isAdmin">Выдача/Возврат</a>
+      <a mat-button routerLink="/profile" routerLinkActive="active-link" *ngIf="isLoggedIn">Профиль</a>
+      <a mat-button routerLink="/login" routerLinkActive="active-link">Вход</a>
+    </nav>
+  </div>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="mat-elevation-z4 mat-app-background">
+  <p>© 2024 Библиотека. Все права защищены.</p>
+</footer>

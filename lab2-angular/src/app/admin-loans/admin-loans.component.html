@@ -1,0 +1,46 @@
+<mat-card class="form-container">
+    <h2>Выдача книг</h2>
+    <form>
+      <!-- Форма для выбора пользователя -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Выберите пользователя</mat-label>
+        <mat-select [(ngModel)]="selectedUserId" name="user">
+          <mat-option *ngFor="let user of users" [value]="user.Id">
+            {{ user.Username }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Форма для выбора книги -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Выберите книгу</mat-label>
+        <mat-select [(ngModel)]="selectedBookId" name="book">
+          <mat-option *ngFor="let book of books" [value]="book.Id">
+            {{ book.Title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Кнопка резервирования -->
+      <button mat-raised-button color="primary" (click)="reserveBook()">Резервировать книгу</button>
+    </form>
+  </mat-card>
+  
+  <mat-card class="form-container">
+    <h2>Возврат книги</h2>
+    <form>
+      <!-- Форма для возврата книги -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Выберите книгу</mat-label>
+        <mat-select [(ngModel)]="returnBookId" name="returnBook">
+          <mat-option *ngFor="let book of rentedBooks" [value]="book.Id">
+            {{ book.Title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Кнопка возврата -->
+      <button mat-raised-button color="accent" (click)="returnBook()">Вернуть книгу</button>
+    </form>
+  </mat-card>
+  

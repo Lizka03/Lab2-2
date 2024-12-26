@@ -1,0 +1,15 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  footer {
+    padding: 1rem 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .content {
+    margin-bottom: 4rem; /* Отступ для футера */
+  }
+  

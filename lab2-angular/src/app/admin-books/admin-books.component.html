@@ -1,0 +1,138 @@
+<div class="books-container">
+    <h1>Список книг</h1>
+    <div class="add-book-form">
+        <h2>Добавить новую книгу</h2>
+        <input
+          type="text"
+          placeholder="Название книги"
+          [(ngModel)]="newBook.Title"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Автор (через запятую)"
+          (change)="onAuthorsChange($event)"
+        />
+        <label>
+          <input
+            type="checkbox"
+            [(ngModel)]="newBook.IsAvailable"
+          />
+          Доступна
+        </label>
+        <button mat-raised-button color="primary" (click)="addBook()">Добавить</button>
+      </div>
+    <!-- Панель управления -->
+    <div class="controls">
+        <input
+      type="text"
+      placeholder="Поиск по названию"
+      [(ngModel)]="searchTerm"
+      (input)="applyFilter()"
+      class="search-input"
+      
+    />
+      <button mat-raised-button color="primary" (click)="onSort('Title')">
+        Сортировать по названию {{ sortBy === 'Title' ? (sortDirection === 'asc' ? '↑' : '↓') : '' }}
+      </button>
+      <button mat-raised-button color="accent" (click)="onSort('authorsNames')">
+        Сортировать по авторам {{ sortBy === 'authorsNames' ? (sortDirection === 'asc' ? '↑' : '↓') : '' }}
+      </button>
+      <button mat-raised-button color="warn" (click)="onSort('IsAvailable')">
+        Сортировать по статусу {{ sortBy === 'IsAvailable' ? (sortDirection === 'asc' ? '↑' : '↓') : '' }}
+      </button>
+      <!--<button mat-raised-button color="primary" (click)="isTableView = !isTableView">
+        {{ isTableView ? 'Переключиться на карточки' : 'Переключиться на таблицу' }}
+      </button>-->
+    </div>
+  
+    <!-- Таблица -->
+      <mat-card>
+        <mat-card-content>
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <!-- Название -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Название</th>
+              <td mat-cell *matCellDef="let book">{{ book.Title || 'Нет названия' }}</td>
+            </ng-container>
+  
+            <!-- Авторы -->
+            <ng-container matColumnDef="authors">
+              <th mat-header-cell *matHeaderCellDef>Авторы</th>
+              <td mat-cell *matCellDef="let book">
+                {{ getAuthorNames(book.Authors) }}</td>
+            </ng-container>
+  
+            <!-- Статус -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Статус</th>
+              <td mat-cell *matCellDef="let book">{{ book.IsAvailable ? 'Доступна' : 'Занята' }}</td>
+            </ng-container>
+  
+            <!-- Арендатор -->
+            <ng-container matColumnDef="rentedBy">
+              <th mat-header-cell *matHeaderCellDef>Арендатор</th>
+              <td mat-cell *matCellDef="let book">{{ book.rentedByUserName }}</td>
+            </ng-container>
+            <!-- Дата аренды -->
+            <ng-container matColumnDef="rentalDate">
+              <th mat-header-cell *matHeaderCellDef>Дата аренды</th>
+               <td mat-cell *matCellDef="let book">{{ book.rentalDate }}</td>
+            </ng-container>
+
+             <!-- Дата возврата -->
+             <ng-container matColumnDef="returnDate">
+               <th mat-header-cell *matHeaderCellDef>Дата возврата</th>
+                 <td mat-cell *matCellDef="let book">{{ book.returnDate }}</td>
+            </ng-container>
+            
+            <!-- Редактирование -->
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>Редактировать</th>
+                <td mat-cell *matCellDef="let book; let i = index">
+                <!-- Если книга редактируется -->
+                    <ng-container *ngIf="editedBookIndex === i; else editButton">
+                        <div>
+                            <input [(ngModel)]="editedBook.Title" placeholder="Название книги" />
+                            <input [(ngModel)]="editedBook.Authors" placeholder="Авторы (через запятую)" />
+                            <input type="checkbox" [(ngModel)]="editedBook.IsAvailable" /> Доступна
+                            <button mat-raised-button color="primary" (click)="saveEdit(book.Id)">Сохранить</button>
+                            <button mat-raised-button color="warn" (click)="cancelEditing()">Отмена</button>
+                        </div>
+                    </ng-container>
+  
+                <!-- Кнопка для начала редактирования -->
+                <ng-template #editButton>
+                    <button mat-raised-button color="accent" (click)="startEditing(i, book)">Редактировать</button>
+                </ng-template>
+                </td>
+            </ng-container>
+            
+            <!-- Удаление -->
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef>Удалить</th>
+              <td mat-cell *matCellDef="let book">
+                <button mat-raised-button color="warn" (click)="deleteBook(book.Id)">
+                Удалить
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    
+  
+    <!-- Карточки -->
+    <!--<div *ngIf="!isTableView">
+      <div *ngFor="let book of books" class="card">
+        <h3>{{ book.Title }}</h3>
+        <p>Авторы: {{ book.authorsNames }}</p>
+        <p>Статус: {{ book.IsAvailable ? 'Доступна' : 'Занята' }}</p>
+        <p>Арендатор: {{ book.rentedByUserName }}</p>
+      </div>
+    </div>-->
+  </div> 
+  

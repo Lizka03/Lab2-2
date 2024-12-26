@@ -1,0 +1,28 @@
+<div class="profile-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Профиль пользователя</mat-card-title>
+      <mat-card-subtitle>Информация о вашем аккаунте</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID:</strong> {{ user?.id }}</p>
+      <p><strong>Имя пользователя:</strong> {{ user?.username }}</p>
+      <p><strong>Электронная почта:</strong> {{ user?.email }}</p>
+      <p><strong>Логин:</strong> {{ user?.login }}</p>
+      <p><strong>Администратор:</strong> {{ user?.isAdmin ? 'Да' : 'Нет' }}</p>
+      <h3><strong>Выданные книги:</strong></h3>
+      <mat-list *ngIf="books.length > 0; else noBooks">
+        <mat-list-item *ngFor="let book of books">
+          <mat-icon matListIcon>book</mat-icon>
+          {{ book }}
+        </mat-list-item>
+      </mat-list>
+      <ng-template #noBooks>
+        <p>Нет выданных книг.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="logout()">Выйти</button>
+  </mat-card-actions>
+</div>
